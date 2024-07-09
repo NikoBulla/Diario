@@ -1,0 +1,239 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chile Deportes</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top"
+        style="background-color: #d60606; border-bottom: 2.5px solid black;">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-personalizado">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn btn-primary" id="loginBtn" data-toggle="modal"
+                        data-target="#loginModal">Iniciar Sesión</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center text-white position-relative"
+        style="border-bottom: 2.5px solid black; height: 200px;">
+        <div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white">
+            <span id="currentDate"></span>
+        </div>
+        <h1 style="font-size: 70px;
+        text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">BALONCESTO</h1>
+    </div>
+    <div class="text-center">
+        <u>
+            <h2>
+                <strong>
+                    ULTIMAS NOTICIAS SOBRE EL BALONCESTO NACIONAL
+                </strong>
+            </h2>
+        </u>
+    </div>
+
+
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-12" style="border: 2px solid red;">
+                <div class="media mb-4" style="margin-top: 20px;">
+                    <img src="{% static 'core/img/imgbasquet1.jpg' %}" class="mr-3 img-fluid" alt="..."
+                        style="max-width: 300px; height: 220px;">
+                    <div class="media-body">
+                        <h5><strong>La ciudad de Santiago de Chile será sede del Sudamericano de Mayores Femenino.
+                            </strong>
+                        </h5>
+                        <p>Durante la jornada del lunes, la Federación de Básquetbol de Chile anunció que la ciudad de
+                            Santiago será sede del Sudamericano de Mayores Femenino. El evento se organizará entre el 29
+                            de agosto al 5 de septiembre en el Centro de Deportes Colectivos. Es en esa misma ciudad
+                            donde Argentina consiguió el histórico bronce en los Juegos Panamericanos de 2023.
+                            <br>
+                            Participarán un total de nueve selecciones entre los que se encuentran Argentina, Bolivia,
+                            Brasil, Colombia, Ecuador, Paraguay, Uruguay, Venezuela, además del país anfitrión. El
+                            certamen otorgará cuatro plazas para la AmeriCup del próximo año.
+                        </p>
+                    </div>
+                </div>
+                <p class="mt-1"><strong>Autor:</strong> <span style="font-weight: bold;">Maicol J. Jordano</span> |
+                    <strong>Fecha:</strong> <span style="font-weight: bold;">Abril 18, 2024</span> |
+                    <strong>Ubicación:</strong> <span style="font-weight: bold;">Santiago, Chile</span> |
+                    <strong>Categoría:</strong> <span style="font-weight: bold;">Baloncesto</span>
+                </p>
+            </div>
+            <div class="col-md-12 mt-1" style="border: 2px solid red;">
+                <div class="media mb-4" style="margin-top: 20px;">
+                    <img src="{% static 'core/img/imgbasquet2.jpg' %}" class="mr-3 img-fluid" alt="..."
+                        style="max-width: 300px; height: 220px;">
+
+                    <div class="media-body">
+                        <h5><strong>Así será la temporada 2024 de la Liga Nacional de Básquetbol Femenino</strong></h5>
+                        <p>La temporada 2024 de la primera división de la Liga Nacional Femenina (LNF) ya está aquí. El
+                            campeonato inició el pasado 13 de abril con la celebración de la
+                            primera jornada del Torneo Apertura.
+                            <br>
+                            Un certamen que se extendería de abril a julio, ofreciendo 14 semanas de competencia con la
+                            participación de 12 clubes, los cuales estarían divididos en dos zonas. Se disputarían hasta
+                            78 encuentros, incluyendo fase zonal, playoff y cuadrangular final.
+                        </p>
+
+                    </div>
+                </div>
+                <p class="mt-1"><strong>Autor:</strong> <span style="font-weight: bold;">Maicol J. Jordano</span> |
+                    <strong>Fecha:</strong> <span style="font-weight: bold;">Abril 18, 2024</span> |
+                    <strong>Ubicación:</strong> <span style="font-weight: bold;">Santiago, Chile</span> |
+                    <strong>Categoría:</strong> <span style="font-weight: bold;">Baloncesto</span>
+                </p>
+            </div>
+            <div class="col-md-12 mt-1 mb-2" style="border: 2px solid red;">
+                <div class="media mb-4" style="margin-top: 20px;">
+                    <img src="{% static 'core/img/imgbasquet3.jpg' %}" class="mr-3 img-fluid" alt="..."
+                        style="max-width: 300px; height: 220px;">
+                    <div class="media-body">
+                        <h5><strong>Histórica victoria para el baloncesto chileno: Los Halcones de Concepción se coronan
+                                campeones del torneo nacional</strong>
+                        </h5>
+                        <p>En un emocionante encuentro que mantuvo a los aficionados al borde de sus asientos, el equipo
+                            de baloncesto Halcones de Concepción logró una victoria épica sobre los favoritos del
+                            torneo, los Titanes de Santiago. Con un marcador final de 82-78, los Halcones no solo
+                            aseguraron el título nacional, sino que también escribieron una nueva página en la historia
+                            del baloncesto chileno.
+                            <br>
+                            El partido estuvo lleno de momentos emocionantes y jugadas espectaculares, con ambos equipos
+                            luchando sin descanso por la victoria. Los Titanes de Santiago, con una racha imparable
+                            durante toda la temporada, fueron considerados los favoritos para llevarse el campeonato.
+                            Sin embargo, los Halcones demostraron su determinación y habilidad, liderados por su
+                            estrella, el capitán Roberto Soto, quien anotó 30 puntos clave durante el juego.
+                        </p>
+                    </div>
+                </div>
+                <p class="mt-1"><strong>Autor:</strong> <span style="font-weight: bold;">Maicol J. Jordano</span> |
+                    <strong>Fecha:</strong> <span style="font-weight: bold;">Abril 18, 2024</span> |
+                    <strong>Ubicación:</strong> <span style="font-weight: bold;">Santiago, Chile</span> |
+                    <strong>Categoría:</strong> <span style="font-weight: bold;">Baloncesto</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 text-white" style="background: #000b7e;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <p class="text-white text-center">(c) 2024 CHILE DEPORTES</p>
+                    <i class="fa fa-instagram mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-facebook-official mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-twitter mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class='fa fa-youtube mr-3' style='font-size:36px;color:rgb(255, 255, 255)'></i>
+                    <i class="fa fa-linkedin-square mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        <a href="{% url 'contactanos' %}" class="text-white">Contáctanos</a> |
+                        <a href="{% url 'trabajaconnos' %}" class="text-white">Trabaja con nosotros</a> |
+                        <a href="{% url 'politics' %}" class="text-white">Política de privacidad</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Obtiene la fecha actual
+        var today = new Date();
+
+        // Obtiene el elemento donde deseas mostrar la fecha
+        var currentDateElement = document.getElementById('currentDate');
+
+        // Formatea la fecha como "dd/mm/yyyy"
+        var formattedDate = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+        // Asigna la fecha formateada al elemento HTML
+        currentDateElement.textContent = formattedDate;
+
+        //<!--Script para inicio de sesion-->
+        $(document).ready(function () {
+            // Muestra el modal de inicio de sesión cuando se hace clic en el botón de inicio de sesión
+            $('#loginBtn').click(function () {
+                $('#loginModal').modal('show');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chile Deportes</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top"
+        style="background-color: #d60606; border-bottom: 2.5px solid black;">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-personalizado">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'nueva_noticia' %}">Ultimas noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'Inicio_sesion' %}">Inicia sesion</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="jumbotron text-center text-white position-relative"
+        style="border-bottom: 2.5px solid black; height: 200px;">
+        <div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white">
+            <span id="currentDate"></span>
+        </div>
+        <h1 style="font-size: 70px;
+        text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">UN DÍA COMO HOY</h1>
+    </div>
+    <div class="container mt-5">
+        <!-- Titular de la noticia -->
+        <div class="row">
+            <div class="col">
+                <u>
+                    <h1 class="text-center" style="font-size: 3.5em;"><strong>18 de abril: Messi anota un gol
+                            "maradoniano"
+                            ante el Getafe</strong></h1>
+                </u>
+            </div>
+            <div class="text-center mb-4 mt-3">
+                <h4>Repasamos los hechos, anécdotas y declaraciones de la historia del deporte que ocurrieron tal día
+                    como hoy, el 18 de abril de otros años.</h4>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <img src="{% static 'core/img/messi.jpg' %}" class="img-fluid" alt="Messi"
+                        style=" width: 1200px; height: 550px; display: block; margin: 0 auto;">
+                    <div>
+                        <p class="mt-1"><strong>Autor:</strong> <span style="font-weight: bold;">Balón Von Bola</span> |
+                            <strong>Fecha:</strong> <span style="font-weight: bold;">Abril 18, 2024</span> |
+                            <strong>Ubicación:</strong> <span style="font-weight: bold;">Santiago, Chile</span> |
+                            <strong>Categoría:</strong> <span style="font-weight: bold;">Fútbol</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container mt-5 mb-5 p-5" style="border: 2px solid red;">
+            <div class="row">
+                <div class="col">
+                    <h1 style="text-align: center;"><strong>Noticias Históricas del Deporte</strong></h1><br>
+                    <ul>
+                        <li><strong>2015:</strong> Un hito histórico en el mundo del fútbol, <strong>Leo Messi</strong>,
+                            el legendario jugador argentino, alcanza un logro sin precedentes al marcar su gol número
+                            400 vistiendo la camiseta del <strong>Barcelona</strong>. Este momento no solo destaca la
+                            destreza y el talento excepcional de <strong>Messi</strong>, sino que también representa un
+                            testimonio de su duradera contribución al club y su lugar en la historia del fútbol.</li>
+                        <li><strong>2012:</strong> En una exhibición impresionante de habilidad y resistencia,
+                            <strong>Joaquim "Purito" Rodríguez</strong> se alza con la victoria en la prestigiosa Flecha
+                            Valona. Su victoria no solo resalta su destreza como ciclista, sino que también le otorga un
+                            lugar destacado entre los grandes de este deporte, consolidando su reputación como uno de
+                            los mejores corredores de su generación.
+                        </li>
+                        <li><strong>2010:</strong> Un emocionante día en el mundo del automovilismo, donde
+                            <strong>Jenson Button</strong> asegura una impresionante victoria en el Gran Premio de
+                            China, superando a su compañero de equipo <strong>Lewis Hamilton</strong> en una batalla
+                            épica. Mientras tanto, en el campo de baloncesto, el <strong>Valencia</strong> se corona
+                            campeón de la Eurocopa, demostrando su dominio en el deporte y llevando alegría a sus
+                            fervientes seguidores.
+                        </li>
+                        <li><strong>2008:</strong> Un hito significativo en la preparación para los Juegos Olímpicos de
+                            Pekín, el estadio "El Nido del Pájaro" alberga su primera prueba, los 20 km marcha. Este
+                            evento marca el comienzo de una emocionante anticipación para los Juegos Olímpicos y subraya
+                            la importancia histórica de este icónico estadio en el escenario deportivo mundial.</li>
+                        <li><strong>2007:</strong> En un momento de genialidad pura, <strong>Leo Messi</strong> deja a
+                            los espectadores boquiabiertos al anotar un gol maradoniano durante un partido de la Copa
+                            del Rey contra el <strong>Getafe</strong>. Su exhibición de habilidad y velocidad deja una
+                            marca indeleble en la memoria de los aficionados al fútbol y se convierte en un momento
+                            legendario en la carrera del talentoso jugador argentino.</li>
+                        <li><strong>2006:</strong> En un emocionante enfrentamiento en la Liga de Campeones, el
+                            <strong>Barcelona</strong> logra una victoria crucial al vencer al <strong>Milán</strong>
+                            por 0-1 en la ida de las semifinales. Este triunfo no solo destaca la calidad y la
+                            determinación del equipo, sino que también marca un paso importante hacia el éxito en el
+                            torneo más prestigioso de clubes europeos.
+                        </li>
+                        <li><strong>2005:</strong> Después de una carrera legendaria en el ciclismo, <strong>Lance
+                                Armstrong</strong> anuncia su decisión de retirarse del Tour de Francia después de la
+                            edición de ese año. Su decisión marca el final de una era en el deporte y deja un legado
+                            perdurable como uno de los ciclistas más exitosos y controvertidos de todos los tiempos.
+                        </li>
+                        <li><strong>1954:</strong> Un momento de jubilo para los seguidores del <strong>Real
+                                Madrid</strong>, el club logra su tercera Liga después de 21 años de sequía en el
+                            campeonato liguero. Esta victoria representa el resurgimiento del club y consolida su
+                            estatus como uno de los equipos más grandes en la historia del fútbol español.</li>
+                        <li><strong>1905:</strong> En un hito histórico para el <strong>Real Madrid</strong>, el club
+                            asegura su primera Copa de España tras vencer al <strong>Athletic de Bilbao</strong> con un
+                            gol decisivo de <strong>Prast</strong>. Este triunfo marca el comienzo de una rica tradición
+                            de éxito para el club y establece su posición como uno de los equipos más laureados en el
+                            fútbol español.</li>
+                        <li><strong>1902:</strong> Un momento fundamental en la historia del <strong>Real
+                                Madrid</strong>, el club presenta la documentación oficial para registrarse como club
+                            deportivo. Este acto marca el inicio de una larga y prestigiosa historia para el club,
+                            sentando las bases para su futuro éxito y su lugar como uno de los clubes más grandes del
+                            mundo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-primary ml-2" data-dismiss="modal" data-toggle="modal"
+                            data-target="#registerModal">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
+                    <!-- Formulario de registro con Parsley.js -->
+                    <form id="registerForm" data-parsley-validate>
+                        <div class="form-group">
+                            <label for="inputUsername">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="inputUsername" placeholder="Nombre de Usuario"
+                                required minlength="8" data-parsley-minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRut">RUT</label>
+                            <input type="text" class="form-control" id="inputRut" placeholder="RUT" required
+                                pattern="\d{7,8}-[0-9kK]{1}" data-parsley-pattern="\d{7,8}-[0-9kK]{1}">
+                            <div id="errorRut" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFullName">Nombre y Apellido</label>
+                            <input type="text" class="form-control" id="inputFullName" placeholder="Nombre y Apellido"
+                                required minlength="2" maxlength="25" data-parsley-length="[2, 25]">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFechaNacimiento">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="inputFechaNacimiento" required>
+                            <div id="errorFechaNacimiento" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputRegisterEmail"
+                                placeholder="Correo Electrónico" required data-parsley-type="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputRegisterPassword"
+                                placeholder="Contraseña" required minlength="8" maxlength="10"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$"
+                                data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputGender">Género</label>
+                            <select class="form-control" id="inputGender" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Dirección</label>
+                            <select class="form-control" id="inputAddress" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Santiago">Santiago</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Número de teléfono</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+56</span>
+                                </div>
+                                <input type="text" class="form-control" id="telefono" placeholder="987654321" required
+                                    pattern="^\d{9}$" data-parsley-pattern="^\d{9}$"
+                                    data-parsley-error-message="Debe ingresar exactamente 9 números.">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer mt-auto py-3 text-white" style="background: #000b7e;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <p class="text-white text-center">(c) 2024 CHILE DEPORTES</p>
+                    <i class="fa fa-instagram mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-facebook-official mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-twitter mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class='fa fa-youtube mr-3' style='font-size:36px;color:rgb(255, 255, 255)'></i>
+                    <i class="fa fa-linkedin-square mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        <a href="{% url 'contactanos' %}" class="text-white">Contáctanos</a> |
+                        <a href="{% url 'trabajaconnos' %}" class="text-white">Trabaja con nosotros</a> |
+                        <a href="{% url 'politics' %}" class="text-white">Política de privacidad</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Obtiene la fecha actual
+        var today = new Date();
+
+        // Obtiene el elemento donde deseas mostrar la fecha
+        var currentDateElement = document.getElementById('currentDate');
+
+        // Formatea la fecha como "dd/mm/yyyy"
+        var formattedDate = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+        // Asigna la fecha formateada al elemento HTML
+        currentDateElement.textContent = formattedDate;
+
+        //<!--Script para inicio de sesion-->
+        $(document).ready(function () {
+            // Muestra el modal de inicio de sesión cuando se hace clic en el botón de inicio de sesión
+            $('#loginBtn').click(function () {
+                $('#loginModal').modal('show');
+            });
+        });
+    </script>
+
+    <!-- Validacion mayor 18 -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fechaNacimiento = document.getElementById('inputFechaNacimiento');
+            const errorFechaNacimiento = document.getElementById('errorFechaNacimiento');
+
+            function validarEdad(fechaNacimiento, errorDiv) {
+                const hoy = new Date();
+                const fechaNac = new Date(fechaNacimiento.value);
+                const edadMinima = new Date(fechaNac.getFullYear() + 18, fechaNac.getMonth(), fechaNac.getDate());
+
+                if (hoy < edadMinima) {
+                    errorDiv.textContent = 'Debes tener al menos 18 años.';
+                    fechaNacimiento.setCustomValidity('Debes tener al menos 18 años.');
+                } else {
+                    errorDiv.textContent = '';
+                    fechaNacimiento.setCustomValidity('');
+                }
+            }
+
+            fechaNacimiento.addEventListener('change', () => validarEdad(fechaNacimiento, errorFechaNacimiento));
+        });
+    </script>
+
+    <!-- Validacion RUT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputRut = document.getElementById('inputRut');
+            const errorRut = document.getElementById('errorRut');
+
+            inputRut.addEventListener('input', () => {
+                if (!inputRut.validity.valid) {
+                    errorRut.textContent = 'El RUT no es válido. Debe seguir el formato 12345678-9.';
+                } else {
+                    errorRut.textContent = '';
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+  th, td {
+	text-align: left;
+	padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+	background-color: #000b7e;
+	color: white;
+  }
+
+  .button {
+	  background-color: #000b7e; /* azul */
+	  border: none;
+	  color: white;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	}
+	
+	.button1 {
+	  background-color: white; 
+	  color: black; 
+	  border: 2px solid red;
+	}
+	
+	.button1:hover {
+	  background-color: #000b7e;
+	  color: white;
+	}
+	
+	.button2 {
+	  background-color: white; 
+	  color: black; 
+	  border: 2px solid #008CBA;
+	}
+	
+	.button2:hover {
+	  background-color: #008CBA;
+	  color: white;
+	}
+	
+	
+	.button4 {
+	  background-color: white;
+	  color: black;
+	  border: 2px solid #e7e7e7;
+	}
+	
+	.button4:hover {background-color: #e7e7e7;}
+	
+	.button5 {
+	  background-color: white;
+	  color: black;
+	  border: 2px solid #555555;
+	}
+	
+	.button5:hover {
+	  background-color: #555555;
+	  color: white;
+	}
+      
+    .button3 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #000b7e;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #000ea3;
+      }
+      
+      .button3:hover {background-color: #af0000}
+      
+      .button3:active {
+        background-color: #680000;
+        box-shadow: 0 5px #ff0000;
+        transform: translateY(4px);
+      }
+
+        /* Asegúrate de que este estilo esté en el archivo CSS correcto y no esté sobrescrito */
+    footer.footer {
+        background: #000b7e !important; /* Fuerza el color de fondo */
+        color: white;
+    }
+
+    /* Estilos adicionales para el contenido del footer */
+    footer.footer .container {
+        background: transparent; /* Asegúrate de que el contenedor del footer sea transparente */
+    }
+
+    footer.footer i {
+        color: white;
+    }
+
+    footer.footer a {
+        color: white;
+    }

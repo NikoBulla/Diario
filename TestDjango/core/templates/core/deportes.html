@@ -1,0 +1,375 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chile Deportes</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top"
+        style="background-color: #d60606; border-bottom: 2.5px solid black;">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-personalizado">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'nueva_noticia' %}">Ultimas noticias</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Cerrar sesión</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{% url 'login' %}">Inicio sesion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center text-white position-relative"
+        style="border-bottom: 2.5px solid black; height: 200px;">
+        <div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white">
+            <span id="currentDate"></span>
+        </div>
+        <h1 style="font-size: 70px; color: white;
+        text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">DEPORTES</h1>
+
+    </div>
+
+    <div class="container mt-5">
+        <div class="row center" style="margin-left: 70px;">
+            <!-- Sección de Fútbol -->
+            <div class="col-md-5 mb-2 mr-5"
+                style="border: 4px solid rgb(0, 0, 0); background-color: rgb(250, 205, 205); border-radius: 20px; box-shadow: 10px 10px rgb(175, 17, 17)">
+                <u>
+                    <h2 class="text-center mt-3"><strong>FÚTBOL</strong></h2>
+                </u>
+                <div class="d-flex align-items-center">
+                    <img src="{% static 'core/img/futbol.jpg' %}" alt="Imagen de Fútbol" class="img-fluid mr-3 mb-2"
+                        style="width: 200px; height: 200px;">
+                    <div>
+                        <p class="text-justify">El fútbol es un deporte de equipo que se juega entre dos equipos de once
+                            jugadores cada uno.
+                            El objetivo es llevar la pelota hacia la portería contraria y marcar goles al meter la
+                            pelota dentro de la portería del equipo contrario.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección de Baloncesto -->
+            <div class="col-md-5 mb-2 mr-5"
+                style="border: 4px solid rgb(0, 0, 0); background-color: rgb(250, 205, 205); border-radius: 20px; box-shadow: 10px 10px rgb(175, 17, 17)">
+                <u>
+                    <h2 class="text-center mt-3"><strong>BALONCESTO</strong></h2>
+                </u>
+                <div class="d-flex align-items-center">
+                    <img src="{% static 'core/img/baloncesto.jpg' %}" alt="Imagen de Baloncesto"
+                        class="img-fluid mr-3 mb-2" style="width: 200px; height: 200px;">
+                    <div>
+                        <p class="text-justify">El baloncesto es un deporte de equipo que se juega entre dos equipos de
+                            cinco jugadores cada
+                            uno. El objetivo es anotar puntos al encestar la pelota en la canasta del equipo contrario
+                            mientras se evita que el equipo rival haga lo mismo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 text-center mt-5 mb-5 mr-5"><a href="{% url 'futbol' %}"
+                    class="btn btn-light border border-dark">
+                    <h4>Ver más de Fútbol</h4>
+                </a> </div>
+            <div class="col-md-5 text-center mt-5 mb-5"><a href="{% url 'baloncesto' %}"
+                    class="btn btn-light border border-dark">
+                    <h4>Ver más de Baloncesto</h4>
+                </a> </div>
+
+            <!-- Sección de Tenis -->
+            <div class="col-md-5 mb-2 mr-5"
+                style="border: 4px solid rgb(0, 0, 0); background-color: rgb(250, 205, 205); border-radius: 20px; box-shadow: 10px 10px rgb(175, 17, 17)">
+                <u>
+                    <h2 class="text-center mt-3"><strong>TENIS</strong></h2>
+                </u>
+                <div class="d-flex align-items-center">
+                    <img src="{% static 'core/img/tenis.jpg' %}" alt="Imagen de Tenis" class="img-fluid mr-3 mb-2"
+                        style="width: 200px; height: 200px;">
+                    <div>
+                        <p class="text-justify">El tenis es un deporte de raqueta que se juega individualmente
+                            (individual) o entre dos
+                            equipos de dos jugadores cada uno (dobles). El objetivo del juego es golpear la pelota de
+                            manera que el oponente no pueda devolverla correctamente y ganar puntos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Golf -->
+            <div class="col-md-5 mb-2 mr-5"
+                style="border: 4px solid rgb(0, 0, 0); background-color: rgb(250, 205, 205); border-radius: 20px; box-shadow: 10px 10px rgb(175, 17, 17)">
+                <u>
+                    <h2 class="text-center mt-3"><strong>GOLF</strong></h2>
+                </u>
+                <div class="d-flex align-items-center">
+                    <img src="{% static 'core/img/golf.jpg' %}" alt="Imagen de Golf" class="img-fluid mr-3 mb-2"
+                        style="width: 200px; height: 200px;">
+                    <div>
+
+                        <p class="text-justify">El golf es un deporte en el que los jugadores usan una variedad de palos
+                            de golf para golpear
+                            una pelota en un recorrido en el menor número de golpes posibles. El objetivo es completar
+                            el recorrido en el menor número de golpes posible.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 text-center mt-5 mb-5 mr-5"><a href="{% url 'tenis' %}"
+                    class="btn btn-light border border-dark">
+                    <h4>Ver más de tenis</h4>
+                </a> </div>
+            <div class="col-md-5 text-center mt-5 mb-5"><a href="{% url 'golf' %}"
+                    class="btn btn-light border border-dark">
+                    <h4>Ver más de golf</h4>
+                </a> </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-primary ml-2" data-dismiss="modal" data-toggle="modal"
+                            data-target="#registerModal">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
+
+                    <form id="registerForm" data-parsley-validate>
+                        <div class="form-group">
+                            <label for="inputUsername">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="inputUsername" placeholder="Nombre de Usuario"
+                                required minlength="8" data-parsley-minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRut">RUT</label>
+                            <input type="text" class="form-control" id="inputRut" placeholder="RUT" required
+                                pattern="\d{7,8}-[0-9kK]{1}" data-parsley-pattern="\d{7,8}-[0-9kK]{1}">
+                            <div id="errorRut" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFullName">Nombre y Apellido</label>
+                            <input type="text" class="form-control" id="inputFullName" placeholder="Nombre y Apellido"
+                                required minlength="2" maxlength="25" data-parsley-length="[2, 25]">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFechaNacimiento">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="inputFechaNacimiento" required>
+                            <div id="errorFechaNacimiento" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputRegisterEmail"
+                                placeholder="Correo Electrónico" required data-parsley-type="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputRegisterPassword"
+                                placeholder="Contraseña" required minlength="8" maxlength="10"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$"
+                                data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputGender">Género</label>
+                            <select class="form-control" id="inputGender" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Dirección</label>
+                            <select class="form-control" id="inputAddress" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Santiago">Santiago</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Número de teléfono</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+56</span>
+                                </div>
+                                <input type="text" class="form-control" id="telefono" placeholder="987654321" required
+                                    pattern="^\d{9}$" data-parsley-pattern="^\d{9}$"
+                                    data-parsley-error-message="Debe ingresar exactamente 9 números.">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 text-white" style="background: #000b7e;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <p class="text-white text-center">(c) 2024 CHILE DEPORTES</p>
+                    <i class="fa fa-instagram mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-facebook-official mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-twitter mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class='fa fa-youtube mr-3' style='font-size:36px;color:rgb(255, 255, 255)'></i>
+                    <i class="fa fa-linkedin-square mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        <a href="{% url 'contactanos' %}" class="text-white">Contáctanos</a> |
+                        <a href="{% url 'trabajaconnos' %}" class="text-white">Trabaja con nosotros</a> |
+                        <a href="{% url 'politics' %}" class="text-white">Política de privacidad</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- Script para mostrar la fecha -->
+    <script>
+        // Obtiene la fecha actual
+        var today = new Date();
+
+        // Obtiene el elemento donde deseas mostrar la fecha
+        var currentDateElement = document.getElementById('currentDate');
+
+        // Formatea la fecha como "dd/mm/yyyy"
+        var formattedDate = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+        // Asigna la fecha formateada al elemento HTML
+        currentDateElement.textContent = formattedDate;
+
+        //<!--Script para inicio de sesion-->
+        $(document).ready(function () {
+            // Muestra el modal de inicio de sesión cuando se hace clic en el botón de inicio de sesión
+            $('#loginBtn').click(function () {
+                $('#loginModal').modal('show');
+            });
+        });
+    </script>
+
+    <!-- Validacion mayor 18 -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fechaNacimiento = document.getElementById('inputFechaNacimiento');
+            const errorFechaNacimiento = document.getElementById('errorFechaNacimiento');
+
+            function validarEdad(fechaNacimiento, errorDiv) {
+                const hoy = new Date();
+                const fechaNac = new Date(fechaNacimiento.value);
+                const edadMinima = new Date(fechaNac.getFullYear() + 18, fechaNac.getMonth(), fechaNac.getDate());
+
+                if (hoy < edadMinima) {
+                    errorDiv.textContent = 'Debes tener al menos 18 años.';
+                    fechaNacimiento.setCustomValidity('Debes tener al menos 18 años.');
+                } else {
+                    errorDiv.textContent = '';
+                    fechaNacimiento.setCustomValidity('');
+                }
+            }
+
+            fechaNacimiento.addEventListener('change', () => validarEdad(fechaNacimiento, errorFechaNacimiento));
+        });
+    </script>
+
+    <!-- Validacion RUT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputRut = document.getElementById('inputRut');
+            const errorRut = document.getElementById('errorRut');
+
+            inputRut.addEventListener('input', () => {
+                if (!inputRut.validity.valid) {
+                    errorRut.textContent = 'El RUT no es válido. Debe seguir el formato 12345678-9.';
+                } else {
+                    errorRut.textContent = '';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

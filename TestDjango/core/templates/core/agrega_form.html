@@ -1,0 +1,149 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/form.css' %}">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chile Deportes</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top"
+        style="background-color: #d60606; border-bottom: 2.5px solid black;">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-personalizado">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'nueva_noticia' %}">Ultimas noticias</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Cerrar sesión</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'login' %}">Inicio sesion</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center text-white position-relative"
+        style="border-bottom: 2.5px solid black; height: 200px;">
+        <div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white">
+            <span id="currentDate"></span>
+        </div>
+        <h1 style="font-size: 70px;
+        text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">AGREGA TU NOTICIA</h1>
+    </div>
+
+    <div class="container">
+        {% if mensaje %}
+        <p style="text-align: center;">{{ mensaje }}</p>
+        {% endif %}
+
+        <form method="POST" action="nuevo">
+            {% csrf_token %}
+
+            {{ form.as_table }}
+
+
+
+            <button type="submit">Guardar</button>
+        </form>
+
+
+    </div>
+
+    <footer class="footer mt-auto py-3 text-white" style="background: #000b7e;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <p class="text-white text-center">(c) 2024 CHILE DEPORTES</p>
+                    <i class="fa fa-instagram mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-facebook-official mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-twitter mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class='fa fa-youtube mr-3' style='font-size:36px;color:rgb(255, 255, 255)'></i>
+                    <i class="fa fa-linkedin-square mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        <a href="{% url 'contactanos' %}" class="text-white">Contáctanos</a> |
+                        <a href="{% url 'trabajaconnos' %}" class="text-white">Trabaja con nosotros</a> |
+                        <a href="{% url 'politics' %}" class="text-white">Política de privacidad</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Obtiene la fecha actual
+        var today = new Date();
+
+        // Obtiene el elemento donde deseas mostrar la fecha
+        var currentDateElement = document.getElementById('currentDate');
+
+        // Formatea la fecha como "dd/mm/yyyy"
+        var formattedDate = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
+        // Asigna la fecha formateada al elemento HTML
+        currentDateElement.textContent = formattedDate;
+
+        //<!--Script para inicio de sesion-->
+        $(document).ready(function () {
+            // Muestra el modal de inicio de sesión cuando se hace clic en el botón de inicio de sesión
+            $('#loginBtn').click(function () {
+                $('#loginModal').modal('show');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

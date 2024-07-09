@@ -1,0 +1,28 @@
+.btn-primary {
+    background-color: #000b7e; /* Azul */
+    border-color: #050589; /* Azul */
+    color: #ffffff; /* Texto blanco */
+}
+
+.btn-primary:hover {
+    background-color: #2a36d6; /* Azul más oscuro al pasar el mouse */
+    border-color: #091466; /* Azul más oscuro al pasar el mouse */
+    color: #ffffff; /* Texto blanco */
+}
+.nav-item {
+    margin-right: 10px; /* Ajusta este valor según sea necesario */
+}
+.navbar-toggler-icon-personalizado {
+    color: white; /* Color del ícono */
+    font-size: 24px; /* Tamaño del ícono */
+  }
+  .jumbotron {
+    margin-top: 50px; /* Ajusta este valor según la altura de tu navbar */
+    background: #d60606 !important;
+}
+.caja-fecha {
+    border-radius: 5px;
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+}

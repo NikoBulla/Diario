@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Chile Deportes</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-white fixed-top" style="background-color: #d60606; border-bottom: 2.5px solid black;">
+		<a class="navbar-brand" href="{% url 'inicio' %}">
+			<img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon-personalizado">&#9776;</span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a></li>
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a></li>
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a></li>
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a></li>
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'nueva_noticia' %}">Ultimas noticias</a></li>
+				{% if mensaje %}
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'salir' %}">Salir</a></li>
+				{% endif %}
+				{% if user.is_authenticated %}
+				<li class="nav-item">
+					<form action="{% url 'logout' %}" method="post">
+						{% csrf_token %}
+						<button type="submit" class="btn btn-primary">Cerrar sesión</button>
+					</form>
+				</li>
+				{% else %}
+				<li class="nav-item"><a class="nav-link btn btn-primary" href="{% url 'login' %}">Inicio sesión</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron text-center text-white position-relative" style="border-bottom: 2.5px solid black; height: 200px;">
+		<div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white"><span id="currentDate"></span></div>
+		<h1 style="font-size: 70px; text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">CHILE DEPORTES</h1>
+	</div>
+
+	<div class="container mt-5">
+		{% if user.is_authenticated %}
+		<p>Bienvenido {{ user.first_name }} {{ user.last_name }}</p>
+		{% endif %}
+
+		<div class="row">
+			<div class="col">
+				<u><h1 class="text-center" style="font-size: 3.5em;"><strong>¡MÁS ARRIBA EN LA TABLA DE POSICIONES QUE NUNCA!</strong></h1></u>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 mx-auto">
+				<div id="carouselNoticiaPrincipal" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselNoticiaPrincipal" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselNoticiaPrincipal" data-slide-to="1"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<a href="{% url 'NoticiaPrincipal' %}">
+								<img src="{% static 'core/img/imagentitular3.jpg' %}" class="d-block w-100" alt="..." style="height: 600px;">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="{% url 'NoticiaPrincipal' %}">
+								<img src="{% static 'core/img/imagentitular2.jpg' %}" class="d-block w-100" alt="..." style="height: 600px;">
+							</a>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselNoticiaPrincipal" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselNoticiaPrincipal" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+				<div>
+					<p class="mt-1"><strong>Autor:</strong> <span style="font-weight: bold;">Balón Von Bola</span> |
+						<strong>Fecha:</strong> <span style="font-weight: bold;">Abril 18, 2024</span> |
+						<strong>Ubicación:</strong> <span style="font-weight: bold;">Santiago, Chile</span> |
+						<strong>Categoría:</strong> <span style="font-weight: bold;">Fútbol</span>
+					</p>
+				</div>
+				<div class="mt-3 text-center p-3" style="border: 2px solid red;">
+					<p>En un intenso partido en el Estadio Santa Laura, la Universidad de Chile le ganó a Unión
+						con gol de Maximiliano Guerrero (56’). Con este resultado, el cuadro azul se mantiene
+						invicto y queda puntero absoluto del Campeonato Nacional con 19 puntos de 21 posibles.
+						<br>
+						Universidad de Chile comenzó a imponer sus términos en el campo de juego, aunque eso se diluyó
+						con el correr de los minutos.
+						Las apariciones en libertad de Ignacio Núñez y Emiliano Vecchio fueron complicadas,
+						pues podían abastecer a Franco Frías y Pablo Aránguiz por los costados.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12" style="border: 2px solid red;">
+				<div class="media mb-4" style="margin-top: 20px;">
+					<a href="{% url 'Noticia1' %}"><img src="{% static 'core/img/imagen3.jpg' %}" class="mr-3 img-fluid" alt="..." style="max-width: 300px; height: 220px;"></a>
+					<div class="media-body">
+						<a href="{% url 'Noticia1

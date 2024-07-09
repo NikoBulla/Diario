@@ -1,0 +1,380 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/planonoticia.css' %}">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chile Deportes</title>
+</head>
+<body>
+    <div class="jumbotron text-center text-white position-relative"
+        style="border-bottom: 2.5px solid black; height: 200px;">
+        <div class="caja-fecha position-absolute inicio-1 arriba-1 p-1 text-white">
+            <span id="currentDate"></span>
+        </div>
+        <h1 style="font-size: 70px;
+        text-shadow: 5px 2px 3px black, 0 0 25px #000b7e, 0 0 5px #000b7e;">TRABAJA CON NOSOTROS</h1>
+
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-white fixed-top"
+        style="background-color: #d60606; border-bottom: 2.5px solid black;">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'core/img/logo3.png' %}" alt="Logo de Mi Página" height="50">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-personalizado">&#9776;</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'undiacomohoy' %}">Un día como hoy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'calendario' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'contactanos' %}">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'nueva_noticia' %}">Ultimas noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'Inicio_sesion' %}">Inicia sesion</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <div class="container">
+        <div class="row p-5 mb-5" style="border: 2px solid red;">
+            <h3 class="mt-3 text-center mb-4"><strong>Si estás interesado en formar parte de nuestro equipo, envíanos tu
+                    currículum vitae o contáctanos para más información.</strong></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet justo sed lectus pellentesque
+                ultrices. Integer nec risus vel nisi efficitur efficitur. Sed id dapibus eros. Vivamus sodales libero
+                vel velit posuere, eu aliquam est aliquet. Nullam hendrerit, justo id consequat pharetra, arcu velit
+                facilisis odio, sed posuere eros nulla ac metus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet justo sed lectus pellentesque
+                ultrices. Integer nec risus vel nisi efficitur efficitur. Sed id dapibus eros. Vivamus sodales libero
+                vel velit posuere, eu aliquam est aliquet. Nullam hendrerit, justo id consequat pharetra, arcu velit
+                facilisis odio, sed posuere eros nulla ac metus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet justo sed lectus pellentesque
+                ultrices. Integer nec risus vel nisi efficitur efficitur. Sed id dapibus eros. Vivamus sodales libero
+                vel velit posuere, eu aliquam est aliquet. Nullam hendrerit, justo id consequat pharetra, arcu velit
+                facilisis odio, sed posuere eros nulla ac metus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet justo sed lectus pellentesque
+                ultrices. Integer nec risus vel nisi efficitur efficitur. Sed id dapibus eros. Vivamus sodales libero
+                vel velit posuere, eu aliquam est aliquet. Nullam hendrerit, justo id consequat pharetra, arcu velit
+                facilisis odio, sed posuere eros nulla ac metus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet justo sed lectus pellentesque
+                ultrices. Integer nec risus vel nisi efficitur efficitur. Sed id dapibus eros. Vivamus sodales libero
+                vel velit posuere, eu aliquam est aliquet. Nullam hendrerit, justo id consequat pharetra, arcu velit
+                facilisis odio, sed posuere eros nulla ac metus.</p>
+
+            <div class="col-md-6 offset-md-3 mt-5 mb-5">
+                <div class="card rounded-lg" style="border-color: #000b7e;">
+                    <div class="card-header text-white" style="background-color: #000b7e;">
+                        <h3 class="mb-0">Formulario</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="formularioTrabajo" data-parsley-validate>
+                            <div class="form-group">
+                                <label for="nombreCompleto">Nombre completo <small>(Ejemplo: Juan Pérez
+                                        González)</small></label>
+                                <input type="text" class="form-control" id="nombreCompleto"
+                                    placeholder="Ingresa tu nombre completo" required minlength="5"
+                                    data-parsley-minlength="5">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Número de teléfono</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">+56</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="telefono" placeholder="987654321"
+                                        required pattern="^\d{9}$" data-parsley-pattern="^\d{9}$"
+                                        data-parsley-error-message="Debe ingresar exactamente 9 números.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correoElectronico">Correo electrónico</label>
+                                <input type="email" class="form-control" id="correoElectronico"
+                                    placeholder="Ingresa tu correo" required data-parsley-type="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="expectativasSalariales">Expectativas salariales</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="expectativasSalariales"
+                                        placeholder="Ingresa tus expectativas salariales" required pattern="^\d+$"
+                                        data-parsley-pattern="^\d+$"
+                                        data-parsley-error-message="Debe ingresar solo números.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea class="form-control" style="min-height: 40px; max-height: 200px;" id="mensaje"
+                                    rows="3" placeholder="Escribe tu mensaje aquí" required></textarea>
+                            </div>
+                            <div class="form-group" style="align-items: center;">
+                                <label for="adjuntarCV">Adjuntar CV</label>
+                                <input type="file" class="form-control-file" id="adjuntarCV" name="adjuntarCV" required
+                                    data-parsley-required data-parsley-filetype="application/pdf,application/msword,
+                                    application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                    data-parsley-error-message="Formato de archivo inválido. Solo se permiten archivos PDF o Word.">
+                                <small class="form-text text-muted">Por favor, adjunta tu currículum vitae en formato
+                                    PDF o Word.</small>
+                            </div>
+                            <button type="submit" class="btn text-white"
+                                style="background-color: #000b7e;">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal de inicio sesion-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-primary ml-2" data-dismiss="modal" data-toggle="modal"
+                            data-target="#registerModal">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
+                    <!-- Formulario de registro con Parsley.js -->
+                    <form id="registerForm" data-parsley-validate>
+                        <div class="form-group">
+                            <label for="inputUsername">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="inputUsername" placeholder="Nombre de Usuario"
+                                required minlength="8" data-parsley-minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRut">RUT</label>
+                            <input type="text" class="form-control" id="inputRut" placeholder="RUT" required
+                                pattern="\d{7,8}-[0-9kK]{1}" data-parsley-pattern="\d{7,8}-[0-9kK]{1}">
+                            <div id="errorRut" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFullName">Nombre y Apellido</label>
+                            <input type="text" class="form-control" id="inputFullName" placeholder="Nombre y Apellido"
+                                required minlength="2" maxlength="25" data-parsley-length="[2, 25]">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFechaNacimiento">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="inputFechaNacimiento" required>
+                            <div id="errorFechaNacimiento" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="inputRegisterEmail"
+                                placeholder="Correo Electrónico" required data-parsley-type="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRegisterPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputRegisterPassword"
+                                placeholder="Contraseña" required minlength="8" maxlength="10"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$"
+                                data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputGender">Género</label>
+                            <select class="form-control" id="inputGender" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Dirección</label>
+                            <select class="form-control" id="inputAddress" required data-parsley-required="true">
+                                <option value="">Seleccionar</option>
+                                <option value="Santiago">Santiago</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone">Teléfono</label>
+                            <input type="tel" class="form-control" id="inputPhone" placeholder="Teléfono" required
+                                pattern="[0-9]+" data-parsley-pattern="[0-9]+">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 text-white" style="background: #000b7e;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <p class="text-white text-center">(c) 2024 CHILE DEPORTES</p>
+                    <i class="fa fa-instagram mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-facebook-official mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class="fa fa-twitter mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                    <i class='fa fa-youtube mr-3' style='font-size:36px;color:rgb(255, 255, 255)'></i>
+                    <i class="fa fa-linkedin-square mr-3" style="font-size:36px;color:rgb(255, 255, 255)"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        <a href="{% url 'contactanos' %}" class="text-white">Contáctanos</a> |
+                        <a href="{% url 'trabajaconnos' %}" class="text-white">Trabaja con nosotros</a> |
+                        <a href="{% url 'politics' %}" class="text-white">Política de privacidad</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    Validacion mayor 18 -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <!-- Popper.js, Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Parsley.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"
+        integrity="sha512-+rODGzClQBLZZt7TJlZnmHq8c0R6sNmPpjDX5alHdMZ3F6s/OpXW1Xb5C5z6TOgOtFXRQ3PwO0yXGXdStyDOiA=="
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fechaNacimiento = document.getElementById('inputFechaNacimiento');
+            const errorFechaNacimiento = document.getElementById('errorFechaNacimiento');
+
+            function validarEdad(fechaNacimiento, errorDiv) {
+                const hoy = new Date();
+                const fechaNac = new Date(fechaNacimiento.value);
+                const edadMinima = new Date(fechaNac.getFullYear() + 18, fechaNac.getMonth(), fechaNac.getDate());
+
+                if (hoy < edadMinima) {
+                    errorDiv.textContent = 'Debes tener al menos 18 años.';
+                    fechaNacimiento.setCustomValidity('Debes tener al menos 18 años.');
+                } else {
+                    errorDiv.textContent = '';
+                    fechaNacimiento.setCustomValidity('');
+                }
+            }
+
+            fechaNacimiento.addEventListener('change', () => validarEdad(fechaNacimiento, errorFechaNacimiento));
+        });
+    </script>
+
+    <!-- Validacion RUT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputRut = document.getElementById('inputRut');
+            const errorRut = document.getElementById('errorRut');
+
+            inputRut.addEventListener('input', () => {
+                if (!inputRut.validity.valid) {
+                    errorRut.textContent = 'El RUT no es válido. Debe seguir el formato 12345678-9.';
+                } else {
+                    errorRut.textContent = '';
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formularioTrabajo').parsley();
+
+            // Validación personalizada para el archivo adjunto
+            window.Parsley.addValidator('filetype', {
+                validateString: function (value, requirement, parsleyInstance) {
+                    const fileInput = parsleyInstance.$element[0];
+                    if (fileInput.files.length == 0) {
+                        return false;  // No file selected
+                    }
+                    const file = fileInput.files[0];
+                    const allowedTypes = requirement.split(',');
+                    return allowedTypes.includes(file.type);
+                },
+                messages: {
+                    es: 'Formato de archivo inválido. Solo se permiten archivos PDF o Word.'
+                }
+            });
+
+            $('#adjuntarCV').attr('data-parsley-filetype', 'application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        });
+    </script>
+
+</body>
+
+</html>
